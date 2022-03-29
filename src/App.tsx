@@ -1,25 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import CalculatorMain from "./components/Calculator/CalculatorMain";
+import ResultMain from "./components/Result/ResultMain";
 
 function App() {
+  const [calcPage, setCalcPage] = useState(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {calcPage ? (
+        <CalculatorMain titleName={`Calculator`} setCalcPage={setCalcPage} />
+      ) : (
+        <ResultMain setCalcPage={setCalcPage} />
+      )}
+    </>
   );
 }
 
